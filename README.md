@@ -72,9 +72,31 @@ Each node has the following **node properties**
 * .uid (a unique node ID),
 * .timestamp (the time it was added into the database first).
 
-Some nodes may also have additional properties, such as
-* .text for the :Statement nodes, storing the text body,
+Some nodes may also have additional properties, such as, by type:
+
+**Statement**
+* .text for the :Statement nodes, storing the text body
+
+**User** 
 * .login and .password fields for the :User nodes to allow authentication.
+
+**Context**
+* .type — can be `standard`, `google`, `twitter`, `wordcloud`, `wikilinks`, `mindmap`, `seo`, `niche` — used to change the UI for each type of context and to load a different editor
+* .query - which search query has been used in case it was `twitter` or `seo` or `niche` or `google`
+* .settings - some settings of the context (max number of nodes, etc)
+* .public - is the context public or private
+* .excludementions - how do we process @mentions
+* .onlymentions - how do we process @mentions
+* .excluderetweets - for Twitter
+* .excludesearchterm - for Google, Seo, and Twitter
+* .limit - how many updates to get (used for live updates)
+* .savemode - can be `append`, `overwrite`, `clone` - how a live context is updated
+* .language - language of Google search and SEO 
+* .country_code - for Google, Twitter and SEO
+* .live - is it a live updated context?
+* .frequency - how often the live update happens?
+* .graphtype - what type of graph should be shown for this context?
+
 
 ![](/images/basic-neo4j-graph-data-model.png "Basic Neo4J graph data model")
 
